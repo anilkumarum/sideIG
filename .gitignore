@@ -1,0 +1,12 @@
+build
+crx-hmr.js
+sideIG.zip
+.vscode
+.TODO
+build.sh
+jsconfig.json
+_metadata
+
+# zip -r sideIG.zip  build
+
+

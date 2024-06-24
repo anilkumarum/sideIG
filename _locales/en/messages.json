@@ -1,0 +1,10 @@
+{
+	"extName": {
+		"message": "sideIG - Instagram in side panel",
+		"description": "Extension name"
+	},
+	"extDescription": {
+		"message": "Open Instagram in side panel. Open Source",
+		"description": "Extension description"
+	}
+}

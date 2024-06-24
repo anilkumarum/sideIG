@@ -1,0 +1,61 @@
+{
+	"manifest_version": 3,
+	"minimum_chrome_version": "112",
+	"default_locale": "en",
+	"name": "__MSG_extName__",
+	"short_name": "sideIG",
+	"description": "__MSG_extDescription__",
+	"version": "0.0.1",
+	"author": "WebRail",
+	"icons": {
+		"128": "icon-128.png",
+		"16": "icon-16.png"
+	},
+
+	"action": {
+		"default_title": "open Instagram (Alt+I)"
+	},
+
+	"side_panel": {
+		"default_path": "panel/index.html"
+	},
+
+	"background": {
+		"service_worker": "background/background.js",
+		"type": "module"
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["https://*.instagram.com/*"],
+			"css": ["panel/style.css"],
+			"all_frames": true
+		}
+	],
+
+	"commands": {
+		"_execute_action": {
+			"suggested_key": {
+				"default": "Alt+I",
+				"windows": "Alt+I",
+				"mac": "Alt+I",
+				"linux": "Alt+I"
+			}
+		}
+	},
+
+	"declarative_net_request": {
+		"rule_resources": [
+			{
+				"id": "ig_frame_rule",
+				"enabled": true,
+				"path": "net_request.json"
+			}
+		]
+	},
+
+	"permissions": ["declarativeNetRequestWithHostAccess", "sidePanel"],
+	"host_permissions": ["https://*.instagram.com/*"],
+
+	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4tyyxxRNeqXhLvjU6P0olrw8pOA9Wl6crBCWdoxrwUiGxCZR3KoOadPtaRdpxNmlD4Cr3KNURV/4ukQGUtvPhmKVObuRmqK5bofTOFEw9A0yXIYbB17WSqPkzp8+aLbayL6aZLg/Bh8RY2PI25jgreWABJBuGoGR6H0PbTLTSbKFN4+zE/cicDKZ9i16YcxGvNq6+JzKdFpqOnXDOf14Rd+wK2Op6C0sod49HJaKLHIvhikc1K2NaKD9Drx1PAt7hjylM5oHAbhNFFl4GRXYILJUpZQGHN2rx98wd/GdFywVixg+FqwAQZULUQqqfk+O8Ic/CTMv5+aXD1T7MHwE8QIDAQAB"
+}
